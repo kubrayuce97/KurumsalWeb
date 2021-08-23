@@ -1,30 +1,19 @@
 ﻿@model IEnumerable<KurumsalWeb.Models.Model.Slider>
-
+@{
+    Layout = null;
+}
 <div id="main-slider" class="flexslider">
     <ul class="slides">
-        <li>
-            <img src="/Content/Sitelayout/img/slides/1.jpg" alt="" />
-            <div class="flex-caption">
-                <h3>Modern Design</h3>
-                <p>Duis fermentum auctor ligula ac malesuada. Mauris et metus odio, in pulvinar urna</p>
-                <a href="#" class="btn btn-theme">Learn More</a>
-            </div>
-        </li>
-        <li>
-            <img src="/Content/Sitelayout/img/slides/2.jpg" alt="" />
-            <div class="flex-caption">
-                <h3>Fully Responsive</h3>
-                <p>Sodales neque vitae justo sollicitudin aliquet sit amet diam curabitur sed fermentum.</p>
-                <a href="#" class="btn btn-theme">Learn More</a>
-            </div>
-        </li>
-        <li>
-            <img src="img/slides/3.jpg" alt="" />
-            <div class="flex-caption">
-                <h3>Clean & Fast</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit donec mer lacinia.</p>
-                <a href="#" class="btn btn-theme">Learn More</a>
-            </div>
-        </li>
+        @foreach (var item in Model)
+        {
+            <li>
+                <img src="@item.ResimURL" alt="@item.Baslik" />
+                <div class="flex-caption">
+                    <h3>@item.Baslik</h3>
+                    <p>@item.Aciklama</p>
+                    <a href="#" class="btn btn-theme">Devamını Oku</a>
+                </div>
+            </li>
+        }
     </ul>
 </div>
