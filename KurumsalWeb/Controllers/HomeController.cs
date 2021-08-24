@@ -16,9 +16,9 @@ namespace KurumsalWeb.Controllers
         {
             ViewBag.Hizmetler = db.Hizmet.ToList().OrderByDescending(x => x.HizmetId);
 
-            ViewBag.Iletisim = db.Iletisim.SingleOrDefault();
+            //ViewBag.Iletisim = db.Iletisim.SingleOrDefault();
 
-            ViewBag.Blog = db.Blog.ToList().OrderByDescending(x => x.BlogId);
+            //ViewBag.Blog = db.Blog.ToList().OrderByDescending(x => x.BlogId);
             return View();
         }
         public ActionResult SliderPartial()
@@ -32,6 +32,17 @@ namespace KurumsalWeb.Controllers
         public ActionResult Hakkimizda()
         {
             return View(db.Hakkimizda.SingleOrDefault());
+        }
+      
+        public ActionResult FooterPartial()
+        {
+            ViewBag.Hizmetler = db.Hizmet.ToList().OrderByDescending(x => x.HizmetId);
+
+            ViewBag.Iletisim = db.Iletisim.SingleOrDefault();
+
+            ViewBag.Blog = db.Blog.ToList().OrderByDescending(x => x.BlogId);
+
+            return PartialView();
         }
     }
 }
