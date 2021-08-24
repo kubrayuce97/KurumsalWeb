@@ -29,5 +29,9 @@ namespace KurumsalWeb.Controllers
         {
             return View(db.Hizmet.ToList().OrderByDescending(x=>x.HizmetId));
         }
+        public ActionResult Hakkimizda()
+        {
+            return View(db.Hakkimizda.SingleOrDefault());
+        }
     }
 }

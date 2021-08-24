@@ -1477,6 +1477,7 @@
     <Content Include="Views\Slider\Edit.cshtml" />
     <Content Include="Views\Slider\Index.cshtml" />
     <Content Include="Views\Home\SliderPartial.cshtml" />
+    <Content Include="Views\Home\Hakkimizda.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
