@@ -10,6 +10,7 @@ using System.Web.Helpers;
 using System.Web.Mvc;
 using KurumsalWeb.Models;
 using KurumsalWeb.Models.DataContext;
+using KurumsalWeb.Models.Model;
 
 namespace KurumsalWeb.Controllers
 {

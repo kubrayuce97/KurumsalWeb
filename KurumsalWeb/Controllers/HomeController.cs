@@ -1,4 +1,5 @@
 ﻿using KurumsalWeb.Models.DataContext;
+using KurumsalWeb.Models.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +24,8 @@ namespace KurumsalWeb.Controllers
         }
         public ActionResult SliderPartial()
         {
-            return View(db.Slider.ToList().OrderByDescending(x=>x.SliderId));
+            List<Slider> slideIdList = db.Slider.ToList().OrderByDescending(x => x.SliderId).ToList();
+            return View(slideIdList);
         }
         public ActionResult HizmetPartial()
         {
@@ -38,7 +40,7 @@ namespace KurumsalWeb.Controllers
         {
             ViewBag.Hizmetler = db.Hizmet.ToList().OrderByDescending(x => x.HizmetId);
 
-            ViewBag.Iletisim = db.Iletisim.SingleOrDefault();
+            ViewBag.Iletisim = db.Iletisim.FirstOrDefault();
 
             ViewBag.Blog = db.Blog.ToList().OrderByDescending(x => x.BlogId);
 
