@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
-namespace KurumsalWeb.Models
+namespace KurumsalWeb.Models.Model
 {
     [Table("Slider")]
     public class Slider
