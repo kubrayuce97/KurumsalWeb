@@ -35,7 +35,10 @@ namespace KurumsalWeb.Controllers
         {
             return View(db.Hakkimizda.SingleOrDefault());
         }
-      
+        public ActionResult Hizmetlerimiz()
+        {
+            return View(db.Hizmet.ToList().OrderByDescending(x=>x.HizmetId));
+        }
         public ActionResult FooterPartial()
         {
             ViewBag.Hizmetler = db.Hizmet.ToList().OrderByDescending(x => x.HizmetId);
