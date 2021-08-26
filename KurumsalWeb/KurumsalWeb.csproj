@@ -1429,6 +1429,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202108260935213_IlkMigration.cs" />
+    <Compile Include="Migrations\202108260935213_IlkMigration.Designer.cs">
+      <DependentUpon>202108260935213_IlkMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DataContext\KurumsalDBContext.cs" />
     <Compile Include="Models\Model\Admin.cs" />
@@ -1495,6 +1499,11 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202108260935213_IlkMigration.resx">
+      <DependentUpon>202108260935213_IlkMigration.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
