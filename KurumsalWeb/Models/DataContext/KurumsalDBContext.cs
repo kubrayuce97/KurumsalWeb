@@ -7,9 +7,12 @@ using System.Web;
 
 namespace KurumsalWeb.Models.DataContext
 {
-    public class KurumsalDBContext: DbContext
+    public class KurumsalDBContext : DbContext
     {
-       
+        public KurumsalDBContext() : base("name=KurumsalWebDBString")
+        {
+
+        }
         public DbSet<Admin> Admin { get; set; }
         public DbSet<Blog> Blog { get; set; }
         public DbSet<Hakkimizda> Hakkimizda { get; set; }
