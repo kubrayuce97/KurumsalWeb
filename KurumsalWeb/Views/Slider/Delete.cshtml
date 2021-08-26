@@ -1,4 +1,4 @@
-﻿@model KurumsalWeb.Models.Slider
+﻿@model KurumsalWeb.Models.Model.Slider
 
 @{
     ViewBag.Title = "Delete";
@@ -30,8 +30,8 @@
 
         <dt>
             @Html.DisplayNameFor(model => model.ResimURL)
-                
-            </dt>
+
+        </dt>
 
         <dd>
             <img src="@Model.ResimURL" width="150" height="50" />
@@ -39,7 +39,8 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">

@@ -26,11 +26,11 @@
 
         <form class="login-form" method="post" action="/Admin/Login/">
             <div class="login-wrap">
-                @if (Session["AdminId"]==null)
+                @if (Session["AdminId"] == null)
                 {
-                <p class="alert">@ViewBag.Uyari</p>
+                    <p class="alert">@ViewBag.Uyari</p>
                 }
-                
+
                 <p class="login-img"><i class="icon_lock_alt"></i></p>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="icon_profile"></i></span>
@@ -40,9 +40,9 @@
                     <span class="input-group-addon"><i class="icon_key_alt"></i></span>
                     <input type="password" name="Sifre" class="form-control" placeholder="Password">
                 </div>
-             
+
                 <button class="btn btn-primary btn-lg btn-block" type="submit"> Giriş Yap</button>
-                
+
             </div>
         </form>
     </div>

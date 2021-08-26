@@ -1,4 +1,4 @@
-﻿@model KurumsalWeb.Models.Slider
+﻿@model KurumsalWeb.Models.Model.Slider
 
 @{
     ViewBag.Title = "Edit";
@@ -10,7 +10,7 @@
 @using (Html.BeginForm("Edit", "Slider", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Slider</h4>
         <hr />

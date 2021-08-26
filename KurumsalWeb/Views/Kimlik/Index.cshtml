@@ -8,9 +8,9 @@
 <section class="main-content">
 
     @*<p>
-        @Html.ActionLink("Yeni Ekle", "Create")
-    </p>*@
-    <table class="table table-bordered table-striped table-responsive-sm" >
+            @Html.ActionLink("Yeni Ekle", "Create")
+        </p>*@
+    <table class="table table-bordered table-striped table-responsive-sm">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Title)
@@ -28,7 +28,7 @@
                 @Html.DisplayNameFor(model => model.Unvan)
             </th>
             <th>İşlemler</th>
-          
+
         </tr>
 
         @foreach (var item in Model)
@@ -56,4 +56,4 @@
         }
 
     </table>
-    </section>
+</section>

@@ -1,4 +1,4 @@
-﻿@model KurumsalWeb.Models.Slider
+﻿@model KurumsalWeb.Models.Model.Slider
 
 @{
     ViewBag.Title = "Create";
@@ -7,10 +7,10 @@
 
 <h2>Create</h2>
 
-@using (Html.BeginForm("Create","Slider",FormMethod.Post, new { enctype="multipart/form-data"}))
+@using (Html.BeginForm("Create", "Slider", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Slider</h4>
         <hr />
@@ -34,7 +34,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.ResimURL, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-              <input type="file" name="ResimURL" class="form-control" required placeholder="Resim Seçiniz" />
+                <input type="file" name="ResimURL" class="form-control" required placeholder="Resim Seçiniz" />
                 @Html.ValidationMessageFor(model => model.ResimURL, "", new { @class = "text-danger" })
             </div>
         </div>
