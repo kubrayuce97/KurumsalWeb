@@ -39,6 +39,10 @@ namespace KurumsalWeb.Controllers
         {
             return View(db.Hizmet.ToList().OrderByDescending(x=>x.HizmetId));
         }
+        public ActionResult Iletisim()
+        {
+            return View(db.Iletisim.SingleOrDefault());
+        }
         public ActionResult FooterPartial()
         {
             ViewBag.Hizmetler = db.Hizmet.ToList().OrderByDescending(x => x.HizmetId);
