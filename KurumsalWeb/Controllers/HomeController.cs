@@ -63,6 +63,10 @@ namespace KurumsalWeb.Controllers
             }
             return View();
         }
+        public ActionResult Blog()
+        {
+            return View(db.Blog.Include("Kategori").ToList().OrderByDescending(x=>x.BlogId));
+        }
         public ActionResult FooterPartial()
         {
             ViewBag.Hizmetler = db.Hizmet.ToList().OrderByDescending(x => x.HizmetId);
