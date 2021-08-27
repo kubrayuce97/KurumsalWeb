@@ -6,6 +6,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
+using PagedList;
+using PagedList.Mvc;
 
 namespace KurumsalWeb.Controllers
 {
@@ -63,9 +65,9 @@ namespace KurumsalWeb.Controllers
             }
             return View();
         }
-        public ActionResult Blog()
+        public ActionResult Blog(int Sayfa = 1)
         {
-            return View(db.Blog.Include("Kategori").ToList().OrderByDescending(x => x.BlogId));
+            return View(db.Blog.Include("Kategori").OrderByDescending(x=>x.BlogId).ToPagedList(Sayfa,5));
         }
         public ActionResult BlogDetay(int id)
         {
