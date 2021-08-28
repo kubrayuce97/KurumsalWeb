@@ -71,7 +71,7 @@ namespace KurumsalWeb.Controllers
         }
         public ActionResult BlogDetay(int id)
         {
-            var b = db.Blog.Include("Kategori").Where(x => x.BlogId == id).SingleOrDefault();
+            var b = db.Blog.Include("Kategori").Include("Yorums").Where(x => x.BlogId == id).SingleOrDefault();
             return View(b);
         }
         public JsonResult YorumYap(string adsoyad, string eposta, string icerik, int blogid)
