@@ -43,15 +43,17 @@
                 <div class="row">
                     <div class="col-lg-8">
                         <h3>Yorum Yap</h3>
-                        <div>
-                            <input type="text" id="adsoyad" placeholder="Adınız Soyadınız" required class="form-control" />
-                            <br />
-                            <input type="email" id="eposta" placeholder="Mail Adresiniz" required class="form-control" />
-                            <br />
-                            <textarea typeof="text" id="icerik" class="form-control"></textarea>
-                            <br />
-                            <button type="button" class="btn btn-success" id="gonder" value="Yorum Yap">Yorum Yap</button>
-                        </div>
+                        <form>
+                            <div>
+                                <input type="text" id="adsoyad" placeholder="Adınız Soyadınız" required class="form-control" />
+                                <br />
+                                <input type="email" id="eposta" placeholder="Mail Adresiniz" required class="form-control" />
+                                <br />
+                                <textarea typeof="text" id="icerik" class="form-control"></textarea>
+                                <br />
+                                <button type="submit" class="btn btn-success" id="gonder" value="Yorum Yap">Yorum Yap</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
 
@@ -89,3 +91,22 @@
     </div>
 </section>
 
+<script src="~/Content/SiteLayout/js/jquery.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#gonder").click(function () {
+            var adisoyadi = $("#adsoyad").val();
+            var epostasi = $("#eposta").val();
+            var yourmunuz = $("#icerik").val();
+            $.ajax({
+                url: '/Home/YorumYap/',
+                data: { adsoyad: adisoyadi, eposta: epostasi, icerik: yourmunuz, blogid:@Model.BlogId },
+                type: 'POST',
+                dataType: 'json',
+                success: function (data) {
+                    alert("Yorumunuz eklendi,Kontrol edildikten sonra yayınlanacaktır.");
+                }
+            });
+        });
+    })
+</script>

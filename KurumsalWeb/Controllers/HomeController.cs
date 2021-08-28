@@ -67,12 +67,28 @@ namespace KurumsalWeb.Controllers
         }
         public ActionResult Blog(int Sayfa = 1)
         {
-            return View(db.Blog.Include("Kategori").OrderByDescending(x=>x.BlogId).ToPagedList(Sayfa,5));
+            return View(db.Blog.Include("Kategori").OrderByDescending(x => x.BlogId).ToPagedList(Sayfa, 5));
         }
         public ActionResult BlogDetay(int id)
         {
             var b = db.Blog.Include("Kategori").Where(x => x.BlogId == id).SingleOrDefault();
             return View(b);
+        }
+        public JsonResult YorumYap(string adsoyad, string eposta, string icerik, int blogid)
+        {
+            if (icerik == null)
+            {
+                return Json(true, JsonRequestBehavior.AllowGet);
+            }
+            db.Yorum.Add(new Yorum
+            {
+                AdSoyad = adsoyad,
+                Eposta = eposta,
+                Icerik = icerik,
+                BlogId = blogid
+            });
+            db.SaveChanges();
+            return Json(false, JsonRequestBehavior.AllowGet);
         }
         public ActionResult BlogKategoriPartial()
         {
