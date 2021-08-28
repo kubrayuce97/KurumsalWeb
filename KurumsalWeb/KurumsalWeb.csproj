@@ -1440,6 +1440,10 @@
     <Compile Include="Migrations\202108260935213_IlkMigration.Designer.cs">
       <DependentUpon>202108260935213_IlkMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202108280631344_updae-dataase -force.cs" />
+    <Compile Include="Migrations\202108280631344_updae-dataase -force.Designer.cs">
+      <DependentUpon>202108280631344_updae-dataase -force.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DataContext\KurumsalDBContext.cs" />
     <Compile Include="Models\Model\Admin.cs" />
@@ -1517,6 +1521,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202108260935213_IlkMigration.resx">
       <DependentUpon>202108260935213_IlkMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108280631344_updae-dataase -force.resx">
+      <DependentUpon>202108280631344_updae-dataase -force.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
