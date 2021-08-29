@@ -79,20 +79,21 @@ namespace KurumsalWeb.Controllers
             }
             return View();
         }
-        [Route("Blog")]
-        [Route("Home/Blog")]
+        [Route("BlogPost")]
+        [Route("Home/BlogPost")]
         public ActionResult Blog(int Sayfa = 1)
         {
             ViewBag.Kimlik = db.Kimlik.SingleOrDefault();
             return View(db.Blog.Include("Kategori").OrderByDescending(x => x.BlogId).ToPagedList(Sayfa, 5));
         }
+        [Route("BlogPost/{KategoriAd}-{id:int}")]
         public ActionResult KategoriBlog(int id, int Sayfa = 1)
         {
             ViewBag.Kimlik = db.Kimlik.SingleOrDefault();
             var b = db.Blog.Include("Kategori").OrderByDescending(x => x.BlogId).Where(x => x.Kategori.KategoriId == id).ToPagedList(Sayfa, 5);
             return View(b);
         }
-        [Route("Blog/{Baslik}-{id:int}")]
+        [Route("BlogPost/{Baslik}-{id:int}")]
         public ActionResult BlogDetay(int id)
         {
             ViewBag.Kimlik = db.Kimlik.SingleOrDefault();
