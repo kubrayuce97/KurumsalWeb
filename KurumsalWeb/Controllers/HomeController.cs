@@ -92,7 +92,7 @@ namespace KurumsalWeb.Controllers
             var b = db.Blog.Include("Kategori").OrderByDescending(x => x.BlogId).Where(x => x.Kategori.KategoriId == id).ToPagedList(Sayfa, 5);
             return View(b);
         }
-
+        [Route("Blog/{Baslik}-{id:int}")]
         public ActionResult BlogDetay(int id)
         {
             ViewBag.Kimlik = db.Kimlik.SingleOrDefault();

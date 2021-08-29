@@ -1,8 +1,8 @@
-﻿
+﻿@model IPagedList<KurumsalWeb.Models.Model.Blog>
 @using PagedList;
 @using PagedList.Mvc;
+@using KurumsalWeb.Helper;
 
-@model IPagedList<KurumsalWeb.Models.Model.Blog>
 @{
     ViewBag.Title = "Blog";
     Layout = "~/Views/Shared/_SiteLayout.cshtml";
@@ -26,7 +26,7 @@
                     <article>
                         <div class="post-image">
                             <div class="post-heading">
-                                <h3><a href="/Home/BlogDetay/@item.BlogId">@item.Baslik</a></h3>
+                                <h3><a href="/Blog/@SeoHelper.ToSeoUrl(item.Baslik).ToLower()-@item.BlogId">@item.Baslik</a></h3>
                             </div>
                             <img src="@item.ResimURL" alt="@item.Baslik" />
                         </div>
@@ -47,7 +47,7 @@
                     @Html.PagedListPager(Model, Sayfa => Url.Action("Blog", new
                {
                    Sayfa
-               }), PagedListRenderOptions.Classic);
+               }), PagedListRenderOptions.Classic)
                 </div>
             </div>
             <div class="col-lg-4">
