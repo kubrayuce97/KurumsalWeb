@@ -16,6 +16,10 @@ namespace KurumsalWeb.Controllers
     {
         private KurumsalDBContext db = new KurumsalDBContext();
         // GET: Home
+
+        [Route("")]
+        [Route("Anasayfa")]
+        [Route("Home/Index")]
         public ActionResult Index()
         {
             ViewBag.Kimlik = db.Kimlik.SingleOrDefault();
@@ -35,16 +39,22 @@ namespace KurumsalWeb.Controllers
         {
             return View(db.Hizmet.ToList().OrderByDescending(x => x.HizmetId));
         }
+        [Route("Hakkimizda")]
+        [Route("Home/Hakkimizda")]
         public ActionResult Hakkimizda()
         {
             ViewBag.Kimlik = db.Kimlik.SingleOrDefault();
             return View(db.Hakkimizda.SingleOrDefault());
         }
+        [Route("Hizmetlerimiz")]
+        [Route("Home/Hizmetlerimiz")]
         public ActionResult Hizmetlerimiz()
         {
             ViewBag.Kimlik = db.Kimlik.SingleOrDefault();
             return View(db.Hizmet.ToList().OrderByDescending(x => x.HizmetId));
         }
+        [Route("Iletisim")]
+        [Route("Home/Iletisim")]
         public ActionResult Iletisim()
         {
             ViewBag.Kimlik = db.Kimlik.SingleOrDefault();
@@ -69,6 +79,8 @@ namespace KurumsalWeb.Controllers
             }
             return View();
         }
+        [Route("Blog")]
+        [Route("Home/Blog")]
         public ActionResult Blog(int Sayfa = 1)
         {
             ViewBag.Kimlik = db.Kimlik.SingleOrDefault();
@@ -80,6 +92,7 @@ namespace KurumsalWeb.Controllers
             var b = db.Blog.Include("Kategori").OrderByDescending(x => x.BlogId).Where(x => x.Kategori.KategoriId == id).ToPagedList(Sayfa, 5);
             return View(b);
         }
+
         public ActionResult BlogDetay(int id)
         {
             ViewBag.Kimlik = db.Kimlik.SingleOrDefault();
