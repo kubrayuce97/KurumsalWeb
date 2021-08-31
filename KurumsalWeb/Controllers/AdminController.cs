@@ -13,16 +13,18 @@ namespace KurumsalWeb.Controllers
     {
         KurumsalDBContext db = new KurumsalDBContext();
         // GET: Admin
-
+        [Route("yonetimpaneli")]
         public ActionResult Index()
         {
             var sorgu = db.Kategori.ToList();
             return View(sorgu);
         }
+        [Route("yonetimpaneli/giris")]
         public ActionResult Login()
         {
             return View();
         }
+       
         [HttpPost]
         public ActionResult Login(Admin admin)
         {
