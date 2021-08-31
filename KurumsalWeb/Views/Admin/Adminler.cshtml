@@ -36,9 +36,9 @@
             @Html.DisplayFor(modelItem => item.Yetki)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Güncelle", new { id=item.AdminId }) |
-            @Html.ActionLink("Details", "Detay", new { id=item.AdminId }) |
-            @Html.ActionLink("Delete", "Sil", new { id=item.AdminId })
+            @Html.ActionLink("Güncelle", "Edit", new { id=item.AdminId }) |
+            @Html.ActionLink("Detay", "Details", new { id=item.AdminId }) |
+            @Html.ActionLink("Sil", "Delete", new { id=item.AdminId })
         </td>
     </tr>
 }
