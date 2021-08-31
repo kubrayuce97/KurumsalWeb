@@ -61,6 +61,37 @@ namespace KurumsalWeb.Controllers
 
             return RedirectToAction("Login", "Admin");
         }
+        public ActionResult SifremiUnuttum()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult SifremiUnuttum(string eposta)
+        {
+            var mail = db.Admin.Where(x => x.Eposta == eposta).SingleOrDefault();
+            if (mail != null)
+            {
+                Random rnd = new Random();
+                int yenisifre = rnd.Next();
+
+                Admin admin = new Admin();
+                mail.Sifre = Crypto.Hash(Convert.ToString(yenisifre), "MD5");
+                db.SaveChanges();
+
+                WebMail.SmtpServer = "smtp.gmail.com";
+                WebMail.EnableSsl = true;
+                WebMail.UserName = "kurumsalweb04@gmail.com";//gmail adres yazılacak.
+                WebMail.Password = "KurumsalWeb04";//gmailin şifresi girilecek.
+                WebMail.SmtpPort = 587;
+                WebMail.Send(eposta,"Admin Panel Giriş Şifreniz","Şifeniz:" +yenisifre);
+                ViewBag.Uyari = "Şifreniz başarı ile gönderildi.";
+            }
+            else
+            {
+                ViewBag.Uyari = "Hata oluştu tekrar deneyiniz";
+            }
+            return View();
+        }
         public ActionResult Adminler()
         {
             return View(db.Admin.ToList());
