@@ -41,6 +41,7 @@ namespace KurumsalWeb.Controllers
             {
                 Session["adminid"] = login.AdminId;
                 Session["eposta"] = login.Eposta;
+                Session["yetki"] = login.Yetki;
 
                 return RedirectToAction("Index", "Admin");
             }
