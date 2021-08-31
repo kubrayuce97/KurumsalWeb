@@ -32,11 +32,12 @@ namespace KurumsalWeb.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login(Admin admin)
+        public ActionResult Login(Admin admin, string sifre)
         {
+            var md5pass = Crypto.Hash(sifre, "MD5");
             var login = db.Admin.Where(x => x.Eposta == admin.Eposta).SingleOrDefault();
 
-            if (login != null && login.Eposta == admin.Eposta && login.Sifre == admin.Sifre)
+            if (login != null && login.Eposta == admin.Eposta && login.Sifre == md5pass)
             {
                 Session["adminid"] = login.AdminId;
                 Session["eposta"] = login.Eposta;
