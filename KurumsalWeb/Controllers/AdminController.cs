@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 
 namespace KurumsalWeb.Controllers
@@ -62,6 +63,22 @@ namespace KurumsalWeb.Controllers
         public ActionResult Adminler()
         {
             return View(db.Admin.ToList());
+        }
+        public ActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Create(Admin admin,string sifre,string eposta)
+        {
+            if (ModelState.IsValid)
+            {
+                admin.Sifre = Crypto.Hash(sifre, "MD5");
+                db.Admin.Add(admin);
+                db.SaveChanges();
+                return RedirectToAction("Adminler");
+            }
+            return View(admin);
         }
     }
 }
