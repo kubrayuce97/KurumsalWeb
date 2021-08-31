@@ -16,6 +16,7 @@ namespace KurumsalWeb.Controllers
         [Route("yonetimpaneli")]
         public ActionResult Index()
         {
+            ViewBag.YorumOnay = db.Yorum.Where(x => x.Onay == false).Count();
             var sorgu = db.Kategori.ToList();
             return View(sorgu);
         }
@@ -24,7 +25,7 @@ namespace KurumsalWeb.Controllers
         {
             return View();
         }
-       
+
         [HttpPost]
         public ActionResult Login(Admin admin)
         {
