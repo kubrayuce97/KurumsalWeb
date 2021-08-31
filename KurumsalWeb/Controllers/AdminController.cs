@@ -16,6 +16,10 @@ namespace KurumsalWeb.Controllers
         [Route("yonetimpaneli")]
         public ActionResult Index()
         {
+            ViewBag.BlogSay = db.Blog.Count();
+            ViewBag.KategoriSay = db.Kategori.Count();
+            ViewBag.HizmetSay = db.Hizmet.Count();
+            ViewBag.YorumSay = db.Yorum.Count();
             ViewBag.YorumOnay = db.Yorum.Where(x => x.Onay == false).Count();
             var sorgu = db.Kategori.ToList();
             return View(sorgu);
