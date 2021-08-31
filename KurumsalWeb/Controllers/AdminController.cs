@@ -59,5 +59,9 @@ namespace KurumsalWeb.Controllers
 
             return RedirectToAction("Login", "Admin");
         }
+        public ActionResult Adminler()
+        {
+            return View(db.Admin.ToList());
+        }
     }
 }
