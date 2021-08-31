@@ -100,5 +100,16 @@ namespace KurumsalWeb.Controllers
             }
             return View(admin);
         }
+        public ActionResult Delete(int id)
+        {
+            var a = db.Admin.Where(x => x.AdminId == id).SingleOrDefault();
+            if (a != null)
+            {
+                db.Admin.Remove(a);
+                db.SaveChanges();
+                return RedirectToAction("Adminler");
+            }
+            return View();
+        }
     }
 }
